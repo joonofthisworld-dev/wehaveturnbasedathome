@@ -145,12 +145,87 @@ public:
 
 };
 
-void FightEnemy()
+// Fight Enemy Function
+void FightEnemy(int damage)
 {
-	Enemy 
+	
+}
+
+enum Spells
+{
+	Firebolt,
+	Heal,
+	SelfDestruct,
+};
+
+void Spell(Spells current)
+{
+	
+
+	switch (current)
+	{
+	case Spells::Firebolt:
+		cout << "Firebolt Spell!" << endl;
+		break;
+
+	case Spells::Heal:
+		cout << "Heal!" << endl;
+		break;
+	case Spells::SelfDestruct:
+		GameOver();
+		break;
+	default:
+		cout << "???" << endl;
+	}
+
+}
+
+string SpellToString(Spells spell)
+{
+	switch (spell)
+	{
+	case Spells::Firebolt: 
+		return "Fireball"; 
+		break;
+
+	case Spells::Heal: 
+		return "Heal"; 
+		break;
+
+	case Spells::SelfDestruct:
+		return "Self Destruct";
+		break;
+
+	default:
+		return "???";
+		break;
+	}
+}
+
+void FindSpells()
+{
+	cout << "Spells:" << endl;
+
+	for (int i = 0; i <= static_cast<int>(Spells::SelfDestruct); ++i)
+	{
+		Spells currentspell = static_cast<Spells>(i);
+
+		cout << SpellToString(currentspell) << endl;
+	}
+
+}
+
+void BattleScreen()
+{
+	// Spawn enemy
+
+	//Blah B;ah Blah
 }
 void MainScreen()
-{
+{	
+	
+	Spells Current;
+
 	int choice = 1;
 	
 	cout << "What would you like to do?" << endl;
@@ -177,10 +252,15 @@ void MainScreen()
 
 			case 2:
 				// Spells Function
+				cout << endl;
+				FindSpells();
+				cout << endl;
+				MainScreen();
 			break;
 
 			case 3:
 				// Stats Function
+
 				break;
 
 			case 4:
