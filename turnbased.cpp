@@ -85,7 +85,7 @@ public:
 		cout << "Ok, " << name << endl;
 	}
 
-	void DamageHero(int damage)
+	void TakeDamage(int damage)
 	{
 		CurrentHealth -= damage;
 		if (CurrentHealth <= 0)
@@ -133,9 +133,22 @@ public:
 		}
 	}
 
+	Enemy()
+	{
+		name = "Unknown";
+
+		Health = 10;
+		Damage = 5;
+		Defense = 3;
+		Dodge = 5;
+	}
+
 };
 
-
+void FightEnemy()
+{
+	Enemy 
+}
 void MainScreen()
 {
 	int choice = 1;
@@ -158,6 +171,8 @@ void MainScreen()
 
 			case 1:
 				// Enemy Function
+				cout << "You encounter an enemy!" << endl;
+				MainScreen();
 			break;
 
 			case 2:
@@ -179,9 +194,11 @@ void MainScreen()
 int main() 
 {
 
-	Hero Player();
+	Hero Player;
 
-	Player().NameHero();
+	Player.NameHero();
+
+	
 	
 
 	MainScreen();
