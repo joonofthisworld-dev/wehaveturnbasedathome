@@ -111,6 +111,11 @@ public:
 		cout << "Health " << CurrentHealth << endl;
 	}
 
+	int GetDamage()
+	{
+		return Attack;
+	}
+
 	void Rest()
 	{
 		if (CanRest)
@@ -134,6 +139,10 @@ public:
 		CanRest = true;
 	}
 
+	void CastSpell()
+	{
+
+	}
 	int GetHp()
 	{
 		return CurrentHealth;

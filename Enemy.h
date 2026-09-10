@@ -60,34 +60,32 @@ public:
 		Health = health;
 		Damage = damage;
 
+	}
+
+	void EnemyAction(Hero player)
+	{
+		int choice = random(1, 2);
+
+		switch (choice)
+		{
+		case 1:
+
+			player.TakeDamage(700);
+
+			break;
+
+		case 2:
+			cout << "Nothing Happened" << endl;
+			break;
+
+
+		}
 
 	}
 
+	int CheckHealth()
+	{
+		return Health;
+	}
 };
 
-
-
-
-
-void EnemyThing(Hero hero, Enemy enemy)
-{
-
-	int choice = random(1, 2);
-
-	switch (choice) 
-	{
-	case 1:
-
-		hero.TakeDamage(700);
-
-		break;
-
-	case 2:
-		cout << "Nothing Happened" << endl;
-		break;
-		
-
-	}
-		
-
-}

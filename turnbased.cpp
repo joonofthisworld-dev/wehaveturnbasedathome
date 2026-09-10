@@ -14,11 +14,68 @@ using std::cin;
 using std::endl;
 
 
-Enemy skelly("Skeleton", 999, 999, 999, 999);
+Enemy skelly("Skeleton", 999, 999);
+
+
+
+void BattleScreen(Hero player, Enemy enemy)
+{
+	int ActionChoice;
+	int SpellChoice;
+
+
+	cout << endl;
+
+	cout << "You encounter an enemy! What will you do?" << endl;
+
+	cout << "1. Attack" << endl;
+
+	cout << "2. Spells" << endl;
+
+	cin >> ActionChoice;
+
+	switch (ActionChoice)
+	{
+	case 1:
+
+		enemy.TakeDamage(player.GetDamage());
+
+		cout << "You Attacked it!" << endl;
+
+		if (enemy.CheckHealth() > 0)
+		{
+			BattleScreen(player, enemy);
+		}
+		else
+		{
+			cout << "You win" << endl;
+		}
+
+		break;
+
+	case 2:
+
+		cout << "What spell will you use?" << endl;
+
+		cin >> SpellChoice;
+
+		cout << "Magic does not exist" << endl;
+		break;
+
+
+	}
+
+	player.ResetRest();
+
+
+
+	cout << endl;
+
+
+}
 
 void MainScreen(Hero player)
 {
-
 
 
 	int choice = 1;
@@ -41,44 +98,7 @@ void MainScreen(Hero player)
 
 	case 1:
 
-		int ActionChoice;
-		int SpellChoice;
-
-
-		cout << endl;
-
-		cout << "You encounter an enemy! What will you do?" << endl;
-
-		cout << "1. Attack" << endl;
-
-		cout << "2. Spells" << endl;
-
-		cin >> ActionChoice;
-
-		switch (ActionChoice)
-		{
-			case 1:
-
-				cout << "You Attacked it!" << endl;
-			break;
-
-			case 2:
-
-				cout << "What spell will you use?" << endl;
-
-				cin >> SpellChoice;
-
-				break;
-					
-
-		}
-
-		player.ResetRest();
-
-
-
-		cout << endl;
-
+		BattleScreen(player, skelly);
 
 		break;
 
@@ -96,7 +116,7 @@ void MainScreen(Hero player)
 		break;
 
 	case 3:
-		
+
 		player.ShowPlayerStats();
 
 		MainScreen(player);
@@ -112,7 +132,6 @@ void MainScreen(Hero player)
 
 
 }
-
 
 
 int main() 
