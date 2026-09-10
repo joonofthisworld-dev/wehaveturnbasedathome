@@ -11,12 +11,12 @@ using std::endl;
 
 
 // Define Enemy
-string Enemies[4] =
+enum EnemyTypes 
 {
-	"Skelton",
-	"Goblin",
-	"Terry",
-	"Seth"
+	Skelton,
+	Goblin,
+	Terry,
+	Seth
 };
 
 class Enemy
@@ -28,9 +28,7 @@ private:
 
 	int
 		Health,
-		Damage,
-		Defense,
-		Dodge;
+		Damage;
 
 
 public:
@@ -52,31 +50,28 @@ public:
 
 		Health = 10;
 		Damage = 5;
-		Defense = 3;
-		Dodge = 5;
+
 	}
 
-	Enemy(string name, int health, int damage, int defense, int dodge)
+	Enemy(string name, int health, int damage)
 	{
 		Name = name;
 
 		Health = health;
 		Damage = damage;
-		Defense = defense;
-		Dodge = dodge;
+
 
 	}
 
 };
 
 
-Enemy GenerateEnemy()
-{
-	
-}
+
+
 
 void EnemyThing(Hero hero, Enemy enemy)
 {
+
 	int choice = random(1, 2);
 
 	switch (choice) 
@@ -88,7 +83,7 @@ void EnemyThing(Hero hero, Enemy enemy)
 		break;
 
 	case 2:
-
+		cout << "Nothing Happened" << endl;
 		break;
 		
 

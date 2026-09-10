@@ -2,6 +2,7 @@
 
 #include <iostream>
 #include "Screen.h"
+#include <cstdlib>
 
 using std::string;
 using std::cout;
@@ -54,8 +55,6 @@ public:
 		Name = "Unkown";
 
 		Level = 1;
-		MaxExp = 100;
-		Exp = 0;
 
 		Health = 5;
 		Endurance = 5;
@@ -87,25 +86,15 @@ public:
 	void TakeDamage(int damage)
 	{
 		CurrentHealth -= damage;
+
 		if (CurrentHealth <= 0)
 		{
 			GameOver();
 		}
+
+
 	}
 
-	void GainExp(int gain)
-	{
-		Exp += gain;
-
-		if (Exp >= MaxExp)
-		{
-			cout << "Level up!" << endl;
-		}
-	}
-	void Levelup()
-	{
-		//bring to level screen and grant stats
-	}
 
 	void ShowPlayerStats()
 	{
@@ -138,5 +127,15 @@ public:
 			cout << endl;
 			cout << "Cant Rest!" << endl;
 		}
+	}
+	
+	void ResetRest()
+	{
+		CanRest = true;
+	}
+
+	int GetHp()
+	{
+		return CurrentHealth;
 	}
 };

@@ -6,6 +6,7 @@
 #include "Spells.h"
 #include "Enemy.h"
 #include "Hero.h"
+#include "Screen.h"
 
 using std::string;
 using std::cout;
@@ -13,6 +14,7 @@ using std::cin;
 using std::endl;
 
 
+Enemy skelly("Skeleton", 999, 999, 999, 999);
 
 void MainScreen(Hero player)
 {
@@ -38,10 +40,45 @@ void MainScreen(Hero player)
 	{
 
 	case 1:
-		// Enemy Function
-		cout << endl;
+
+		int ActionChoice;
+		int SpellChoice;
+
 
 		cout << endl;
+
+		cout << "You encounter an enemy! What will you do?" << endl;
+
+		cout << "1. Attack" << endl;
+
+		cout << "2. Spells" << endl;
+
+		cin >> ActionChoice;
+
+		switch (ActionChoice)
+		{
+			case 1:
+
+				cout << "You Attacked it!" << endl;
+			break;
+
+			case 2:
+
+				cout << "What spell will you use?" << endl;
+
+				cin >> SpellChoice;
+
+				break;
+					
+
+		}
+
+		player.ResetRest();
+
+
+
+		cout << endl;
+
 
 		break;
 
