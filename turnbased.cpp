@@ -60,6 +60,8 @@ void BattleScreen(Hero player, Enemy enemy)
 		cin >> SpellChoice;
 
 		cout << "Magic does not exist" << endl;
+
+		BattleScreen(player, enemy);
 		break;
 
 
@@ -99,6 +101,15 @@ void MainScreen(Hero player)
 	case 1:
 
 		BattleScreen(player, skelly);
+
+		if (player.GetHp() >= 0)
+		{
+			MainScreen(player);
+		}
+		else
+		{
+			GameOver();
+		}
 
 		break;
 

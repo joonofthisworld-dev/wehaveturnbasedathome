@@ -51,6 +51,8 @@ private:
 
 public:
 
+	bool alive = true;
+
 	Hero() {
 		Name = "Unkown";
 
