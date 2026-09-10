@@ -125,6 +125,13 @@
   <ItemGroup>
     <ClCompile Include="turnbased.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Enemy.h" />
+    <ClInclude Include="Hero.h" />
+    <ClInclude Include="Random.h" />
+    <ClInclude Include="Screens.h" />
+    <ClInclude Include="Spells.h" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
