@@ -16,7 +16,7 @@ int GameOver()
 	return 0;
 }
 
-void BattleScreen()
+void BattleScreen(Hero player, Enemy enemy)
 {
 
 
@@ -24,6 +24,7 @@ void BattleScreen()
 
 	cout << "You encounter an enemy!" << endl;
 
+	EnemyThing(player, enemy);
 	//Blah B;ah Blah
 }
 

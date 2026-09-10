@@ -9,6 +9,14 @@ using std::cin;
 using std::endl;
 
 // Define Player/Class
+
+enum Weapon
+{
+	Daggers,
+	Sword,
+	SwordBigger
+};
+
 class Hero {
 
 private:
@@ -38,7 +46,7 @@ private:
 		CurrentHealth;
 
 
-
+	bool CanRest = true;
 
 public:
 
@@ -97,5 +105,17 @@ public:
 	void Levelup()
 	{
 		//bring to level screen and grant stats
+	}
+
+	void ShowPlayerStats()
+	{
+		//cout player stats
+	}
+
+	void Rest()
+	{
+		CurrentHealth = MaxHealth;
+		Mana = MaxMana;
+		CanRest = false;
 	}
 };

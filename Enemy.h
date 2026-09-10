@@ -1,6 +1,8 @@
 #pragma once
 
 #include <iostream>
+#include "Hero.h"
+#include "Screens.h"
 
 using std::string;
 using std::cout;
@@ -13,7 +15,7 @@ string Enemies[4] =
 {
 	"Skelton",
 	"Goblin",
-	"Terry"
+	"Terry",
 	"Seth"
 };
 
@@ -40,6 +42,7 @@ public:
 		if (Health <= 0)
 		{
 			cout << "Enemy defeated!" << endl;
+			MainScreen();
 		}
 	}
 
@@ -66,7 +69,33 @@ public:
 
 };
 
-void EnemyThing()
+void EnemyThing(Hero hero, Enemy enemy)
 {
-	// Enemy action based off of random
+	int choice = random(1, 4);
+
+	switch (choice) 
+	{
+	case 1:
+
+		hero.TakeDamage(700);
+
+		BattleScreen(hero, enemy);
+
+		break;
+
+	case 2:
+
+		BattleScreen(hero, enemy);
+
+		break;
+		
+	case 3:
+
+		enemy.TakeDamage(-4);
+
+		BattleScreen(hero, enemy);
+		break;
+	}
+		
+
 }
