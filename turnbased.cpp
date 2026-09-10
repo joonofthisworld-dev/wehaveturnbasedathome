@@ -5,7 +5,6 @@
 #include "Random.h"
 #include "Spells.h"
 #include "Enemy.h"
-#include "Screens.h"
 #include "Hero.h"
 
 using std::string;
@@ -15,9 +14,66 @@ using std::endl;
 
 
 
-void FightEnemy(Enemy enemy, int damage)
+void MainScreen(Hero player)
 {
-	enemy.TakeDamage(damage);
+
+
+
+	int choice = 1;
+
+	cout << "What would you like to do?" << endl;
+
+	cout << "1. Fight Enemy" << endl;
+
+	cout << "2. View Spells" << endl;
+
+	cout << "3. View Stats" << endl;
+
+	cout << "4. Rest" << endl;
+
+	cin >> choice;
+
+
+	switch (choice)
+	{
+
+	case 1:
+		// Enemy Function
+		cout << endl;
+
+		cout << endl;
+
+		break;
+
+	case 2:
+		// Spells Function
+
+		cout << endl;
+
+		FindSpells();
+
+		cout << endl;
+
+		MainScreen(player);
+
+		break;
+
+	case 3:
+		
+		player.ShowPlayerStats();
+
+		MainScreen(player);
+		break;
+
+	case 4:
+
+		player.Rest();
+
+		MainScreen(player);
+		break;
+	}
+
+
 }
 
 
@@ -32,7 +88,7 @@ int main()
 	
 	
 
-	MainScreen();
+	MainScreen(Player);
 
 
 	return 0;

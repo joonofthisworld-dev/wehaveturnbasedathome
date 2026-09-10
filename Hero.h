@@ -1,7 +1,7 @@
 #pragma once
 
 #include <iostream>
-#include "Screens.h"
+#include "Screen.h"
 
 using std::string;
 using std::cout;
@@ -57,14 +57,14 @@ public:
 		MaxExp = 100;
 		Exp = 0;
 
-		Health = 0;
-		Endurance = 0;
-		Attack = 0;
-		Luck = 0;
-		Magic = 0;
+		Health = 5;
+		Endurance = 5;
+		Attack = 5;
+		Luck = 5;
+		Magic = 5;
 		Extra = 0;
 
-		Mana = 0,
+		Mana = 100,
 			MaxMana = 0,
 			Defense = 5;
 		MaxHealth = 100;
@@ -109,13 +109,34 @@ public:
 
 	void ShowPlayerStats()
 	{
-		//cout player stats
+		cout << "Level " << Level << endl;
+
+		cout << "Health " << Health << endl;
+		cout << "Endurance " << Endurance << endl;
+		cout << "Attack " << Attack << endl;
+		cout << "Luck " << Luck << endl;
+		cout << "Magic " << Magic << endl;
+		cout << "Extra " << Extra << endl;
+
+		cout << "Mana " << Mana << endl;
+		cout << "Health " << CurrentHealth << endl;
 	}
 
 	void Rest()
 	{
-		CurrentHealth = MaxHealth;
-		Mana = MaxMana;
-		CanRest = false;
+		if (CanRest)
+		{
+			CurrentHealth = MaxHealth;
+			Mana = MaxMana;
+			CanRest = false;
+
+			cout << endl;
+			cout << "Rested" << endl;
+		}
+		else
+		{
+			cout << endl;
+			cout << "Cant Rest!" << endl;
+		}
 	}
 };

@@ -2,7 +2,7 @@
 
 #include <iostream>
 #include "Hero.h"
-#include "Screens.h"
+#include "Random.h"
 
 using std::string;
 using std::cout;
@@ -42,7 +42,7 @@ public:
 		if (Health <= 0)
 		{
 			cout << "Enemy defeated!" << endl;
-			MainScreen();
+			//MainScreen();
 		}
 	}
 
@@ -69,9 +69,15 @@ public:
 
 };
 
+
+Enemy GenerateEnemy()
+{
+	
+}
+
 void EnemyThing(Hero hero, Enemy enemy)
 {
-	int choice = random(1, 4);
+	int choice = random(1, 2);
 
 	switch (choice) 
 	{
@@ -79,22 +85,13 @@ void EnemyThing(Hero hero, Enemy enemy)
 
 		hero.TakeDamage(700);
 
-		BattleScreen(hero, enemy);
-
 		break;
 
 	case 2:
 
-		BattleScreen(hero, enemy);
-
 		break;
 		
-	case 3:
 
-		enemy.TakeDamage(-4);
-
-		BattleScreen(hero, enemy);
-		break;
 	}
 		
 
