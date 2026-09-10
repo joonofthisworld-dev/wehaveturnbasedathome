@@ -215,6 +215,12 @@ void FindSpells()
 
 }
 
+void EnemyThing()
+{
+
+}
+
+
 void BattleScreen()
 {
 	// Spawn enemy
