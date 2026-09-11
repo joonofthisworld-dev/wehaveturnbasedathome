@@ -60,9 +60,14 @@ void Battle(Hero& player, Enemy enemy)
 
 			cout << "You took " << enemy.GetDamage() << " Damage" << endl;
 
-			player.TakeDamage(enemy.GetDamage());
+			if (player.Alive)
+			{
+				player.TakeDamage(enemy.GetDamage());
 
-			cout << "The enemy took " << player.GetDamage() << " Damage" << endl;
+				cout << "The enemy took " << player.GetDamage() << " Damage" << endl;
+			}
+
+			
 
 			break;
 
