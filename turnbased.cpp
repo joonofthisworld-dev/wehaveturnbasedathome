@@ -6,7 +6,7 @@
 #include "Spells.h"
 #include "Enemy.h"
 #include "Hero.h"
-#include "Screen.h"
+
 
 using std::string;
 using std::cout;
@@ -17,63 +17,56 @@ using std::endl;
 Enemy skelly("Skeleton", 999, 999);
 
 
-
-void BattleScreen(Hero player, Enemy enemy)
+void Battle(Hero player, Enemy enemy)
 {
-	int ActionChoice;
-	int SpellChoice;
+	cout << "You encounter a enemy!" << endl;
 
-
-	cout << endl;
-
-	cout << "You encounter an enemy! What will you do?" << endl;
-
-	cout << "1. Attack" << endl;
-
-	cout << "2. Spells" << endl;
-
-	cin >> ActionChoice;
-
-	switch (ActionChoice)
+	while (player.Alive && enemy.Alive)
 	{
-	case 1:
+		enemy.Display();
 
-		enemy.TakeDamage(player.GetDamage());
+		int choice;
+		
+		cout << "1. Attack" << endl;
 
-		cout << "You Attacked it!" << endl;
+		cout << "2. Spells" << endl;
 
-		if (enemy.CheckHealth() > 0)
+		cin >> choice;
+
+		switch (choice)
 		{
-			BattleScreen(player, enemy);
+		case 1:
+
+			enemy.TakeDamage(player.GetDamage());
+
+			break;
+
+		case 2:
+
+			int spellchoice;
+
+			FindSpells();
+
+			cin >> spellchoice;
+
+			switch (spellchoice)
+			{
+			case 1:
+				cout << "Magic does not exist!!!" << endl;
+				break;
+			case 2:
+				cout << "Magic does not exist!!!" << endl;
+				break;
+			case 3:
+				cout << "Magic does not exist!!!" << endl;
+				break;
+
+			default:
+				cout << "Magic does not exist!!!" << endl;
+				break;
+			}
 		}
-		else
-		{
-			cout << "You win" << endl;
-		}
-
-		break;
-
-	case 2:
-
-		cout << "What spell will you use?" << endl;
-
-		cin >> SpellChoice;
-
-		cout << "Magic does not exist" << endl;
-
-		BattleScreen(player, enemy);
-		break;
-
-
 	}
-
-	player.ResetRest();
-
-
-
-	cout << endl;
-
-
 }
 
 void MainScreen(Hero player)
@@ -100,16 +93,7 @@ void MainScreen(Hero player)
 
 	case 1:
 
-		BattleScreen(player, skelly);
-
-		if (player.GetHp() >= 0)
-		{
-			MainScreen(player);
-		}
-		else
-		{
-			GameOver();
-		}
+		Battle(player, skelly);
 
 		break;
 

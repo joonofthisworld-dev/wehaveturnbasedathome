@@ -1,7 +1,6 @@
 #pragma once
 
 #include <iostream>
-#include "Screen.h"
 #include <cstdlib>
 
 using std::string;
@@ -23,6 +22,8 @@ class Hero {
 private:
 
 	string Name;
+
+	Weapon weapon = Daggers;
 
 	int
 		// Level
@@ -51,7 +52,7 @@ private:
 
 public:
 
-	bool alive = true;
+	bool Alive = true;
 
 	Hero() {
 		Name = "Unkown";
@@ -66,7 +67,7 @@ public:
 		Extra = 0;
 
 		Mana = 100,
-			MaxMana = 0,
+			MaxMana = 100,
 			Defense = 5;
 		MaxHealth = 100;
 		CurrentHealth = 100;
@@ -91,7 +92,8 @@ public:
 
 		if (CurrentHealth <= 0)
 		{
-			GameOver();
+			cout << "You died!" << endl;
+			Alive = false;
 		}
 
 
@@ -115,7 +117,27 @@ public:
 
 	int GetDamage()
 	{
-		return Attack;
+		int attack = 0;
+
+		switch ( weapon )
+		{
+		case Daggers:
+
+			attack = Attack;
+
+			break;
+		case Sword:
+
+			attack = Attack;
+			break;
+		case SwordBigger:
+
+			attack = Attack;
+
+			break;
+		}
+
+		return attack;
 	}
 
 	void Rest()

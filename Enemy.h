@@ -42,7 +42,8 @@ public:
 		if (Health <= 0)
 		{
 			cout << "Enemy defeated!" << endl;
-			//MainScreen();
+			
+			Alive = false;
 		}
 	}
 
@@ -64,30 +65,10 @@ public:
 
 	}
 
-	void EnemyAction(Hero player)
+
+	void Display()
 	{
-		int choice = random(1, 2);
-
-		switch (choice)
-		{
-		case 1:
-
-			player.TakeDamage(700);
-
-			break;
-
-		case 2:
-			cout << "Nothing Happened" << endl;
-			break;
-
-
-		}
-
-	}
-
-	int CheckHealth()
-	{
-		return Health;
+		cout << Name << endl << "Health: " << Health << endl;
 	}
 };
 
