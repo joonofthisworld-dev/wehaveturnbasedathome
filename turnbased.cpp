@@ -123,6 +123,16 @@ void Battle(Hero& player, Enemy enemy)
 				break;
 
 			case 5:
+
+
+				cout << "I lied theres no spell." << endl;
+
+				cout << "You took " << enemy.GetDamage() << " Damage" << endl;
+				player.TakeDamage(enemy.GetDamage());
+
+
+				break;
+			case 6:
 				cout << "You casted it on yourself!!!" << endl;
 
 				player.ManaChange(-67);
