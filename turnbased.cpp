@@ -14,15 +14,17 @@ using std::cin;
 using std::endl;
 
 
-Enemy skelly("Skeleton", 999, 999);
+Enemy skelly("Skeleton", 20, 1);
 
 
 void Battle(Hero player, Enemy enemy)
 {
+	cout << endl;
 	cout << "You encounter a enemy!" << endl;
 
 	while (player.Alive && enemy.Alive)
 	{
+		cout << endl;
 		enemy.Display();
 
 		int choice;
@@ -32,12 +34,19 @@ void Battle(Hero player, Enemy enemy)
 		cout << "2. Spells" << endl;
 
 		cin >> choice;
+		cout << endl;
 
 		switch (choice)
 		{
 		case 1:
 
 			enemy.TakeDamage(player.GetDamage());
+
+			cout << "You took " << enemy.GetDamage() << " Damage" << endl;
+
+			player.TakeDamage(enemy.GetDamage());
+
+			cout << "The enemy took " << player.GetDamage() << " Damage" << endl;
 
 			break;
 
@@ -53,19 +62,46 @@ void Battle(Hero player, Enemy enemy)
 			{
 			case 1:
 				cout << "Magic does not exist!!!" << endl;
+
+				cout << "You took " << enemy.GetDamage() << " Damage" << endl;
+				player.TakeDamage(enemy.GetDamage());
+
+
 				break;
 			case 2:
+
 				cout << "Magic does not exist!!!" << endl;
+
+				cout << "You took " << enemy.GetDamage() << " Damage" << endl;
+				player.TakeDamage(enemy.GetDamage());
+
 				break;
 			case 3:
-				cout << "Magic does not exist!!!" << endl;
+				cout << "You Expoded!!!" << endl;
+
+				player.TakeDamage(99999999);
+
 				break;
 
 			default:
 				cout << "Magic does not exist!!!" << endl;
+
+				cout << "You took " << enemy.GetDamage() << " Damage" << endl;
+				player.TakeDamage(enemy.GetDamage());
 				break;
 			}
 		}
+	}
+
+	if (player.Alive && enemy.Alive == false)
+	{
+		cout << endl;
+		cout << "You win!" << endl;
+	}
+	else if (player.Alive == false && enemy.Alive)
+	{
+		cout << endl;
+		cout << "You loose." << endl;
 	}
 }
 
@@ -73,7 +109,10 @@ void MainScreen(Hero player)
 {
 
 
-	int choice = 1;
+	int 
+		choice = 1;
+
+	cout << endl;
 
 	cout << "What would you like to do?" << endl;
 
@@ -94,6 +133,8 @@ void MainScreen(Hero player)
 	case 1:
 
 		Battle(player, skelly);
+
+		MainScreen(player);
 
 		break;
 

@@ -65,7 +65,19 @@ public:
 
 	}
 
+	int GetDamage()
+	{
+		int damage = Damage;
 
+		int outcome = random(1, 5);
+
+		if (outcome == 1)
+		{
+			damage = 0;
+		}
+
+		return damage;
+	}
 	void Display()
 	{
 		cout << Name << endl << "Health: " << Health << endl;

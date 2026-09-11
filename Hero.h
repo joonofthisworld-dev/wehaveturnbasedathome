@@ -137,6 +137,14 @@ public:
 			break;
 		}
 
+
+		int outcome = random(1, 5);
+
+		if (outcome == 1)
+		{
+			attack = 0;
+		}
+
 		return attack;
 	}
 
@@ -167,6 +175,7 @@ public:
 	{
 
 	}
+
 	int GetHp()
 	{
 		return CurrentHealth;
