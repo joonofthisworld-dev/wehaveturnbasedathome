@@ -2,6 +2,7 @@
 #include <random>
 #include <algorithm>
 #include <ctime>
+#include <cassert>
 #include "Random.h"
 #include "Spells.h"
 #include "Enemy.h"
@@ -13,8 +14,9 @@ using std::cout;
 using std::cin;
 using std::endl;
 
+int cycle = 5;
 
-Enemy skelly("Skeleton", 20, 1);
+Enemy skelly("Bandit", 20 * cycle, 1 * cycle);
 
 
 void Battle(Hero player, Enemy enemy)
@@ -26,6 +28,9 @@ void Battle(Hero player, Enemy enemy)
 	{
 		cout << endl;
 		enemy.Display();
+		cout << endl;
+		player.DisplayBattle();
+		cout << endl;
 
 		int choice;
 		
@@ -80,7 +85,6 @@ void Battle(Hero player, Enemy enemy)
 				cout << "You Expoded!!!" << endl;
 
 				player.TakeDamage(99999999);
-
 				break;
 
 			default:
@@ -97,6 +101,10 @@ void Battle(Hero player, Enemy enemy)
 	{
 		cout << endl;
 		cout << "You win!" << endl;
+
+		player.Upgrade();
+
+		cycle + 1;
 	}
 	else if (player.Alive == false && enemy.Alive)
 	{
@@ -107,74 +115,64 @@ void Battle(Hero player, Enemy enemy)
 
 void MainScreen(Hero player)
 {
-
-
-	int 
-		choice = 1;
-
-	cout << endl;
-
-	cout << "What would you like to do?" << endl;
-
-	cout << "1. Fight Enemy" << endl;
-
-	cout << "2. View Spells" << endl;
-
-	cout << "3. View Stats" << endl;
-
-	cout << "4. Rest" << endl;
-
-	cin >> choice;
-
-
-	switch (choice)
+	if (player.Alive)
 	{
+		int choice = 1;
 
-	case 1:
+		cout << endl;
 
-		Battle(player, skelly);
+		cout << "What would you like to do?" << endl;
 
-		if (player.Alive == true)
+		cout << "1. Fight Enemy" << endl;
+
+		cout << "2. View Spells" << endl;
+
+		cout << "3. View Stats" << endl;
+
+		cout << "4. Rest" << endl;
+
+		cin >> choice;
+
+
+		switch (choice)
 		{
+
+		case 1:
+
+			Battle(player, skelly);
+
 			MainScreen(player);
+
+			break;
+
+		case 2:
+			// Spells Function
+
+			cout << endl;
+
+			FindSpells();
+
+			cout << endl;
+
+			MainScreen(player);
+
+			break;
+
+		case 3:
+
+			player.ShowPlayerStats();
+
+			MainScreen(player);
+			break;
+
+		case 4:
+
+			player.Rest();
+
+			MainScreen(player);
+			break;
 		}
-		else
-		{
-
-		}
-		
-
-		break;
-
-	case 2:
-		// Spells Function
-
-		cout << endl;
-
-		FindSpells();
-
-		cout << endl;
-
-		MainScreen(player);
-
-		break;
-
-	case 3:
-
-		player.ShowPlayerStats();
-
-		MainScreen(player);
-		break;
-
-	case 4:
-
-		player.Rest();
-
-		MainScreen(player);
-		break;
 	}
-
-
 }
 
 
@@ -184,9 +182,10 @@ int main()
 	Hero Player;
 
 	Player.NameHero();
+
 	Player.ChooseWeapon();
 
 	MainScreen(Player);
-
 	return 0;
 }
+

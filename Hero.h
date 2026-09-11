@@ -44,7 +44,9 @@ private:
 		Mana,
 		MaxMana,
 		Defense,
-		MaxHealth,
+		MaxHealth;
+
+	float
 		CurrentHealth;
 
 
@@ -93,12 +95,16 @@ public:
 		if (CurrentHealth <= 0)
 		{
 			cout << "You died!" << endl;
+
 			Alive = false;
+
+			cout << endl; cout << endl; cout << endl;
+			cout << Alive;
+			cout << endl; cout << endl; cout << endl;
 		}
 
 
 	}
-
 
 	void ShowPlayerStats()
 	{
@@ -118,15 +124,26 @@ public:
 
 	}
 
-	int GetDamage()
+	void DisplayBattle()
 	{
-		int attack = 0;
+		cout << endl;
+
+		cout << Name << endl;
+
+		cout << "Health: "<< CurrentHealth << endl;
+
+		cout << "Mana: " << Mana << endl;
+	}
+
+	float GetDamage()
+	{
+		float attack = 0;
 
 		switch ( weapon )
 		{
 		case Daggers:
 
-			attack = Attack;
+			attack = (Attack * .7) * 2;
 
 			break;
 		case Sword:
@@ -135,7 +152,7 @@ public:
 			break;
 		case SwordBigger:
 
-			attack = Attack * 3;
+			attack = Attack * 2;
 
 			break;
 		}
@@ -199,9 +216,66 @@ public:
 		}
 	}
 
-	int GetHp()
+	void Upgrade()
 	{
-		return CurrentHealth;
+		Level += 1;
+		int points = 1;
+
+		int lvchoice;
+
+		cout << "You have " << points << " points of upgrade. Where would you like to allocate them?" << endl;
+
+		cout << "1. Health" << endl;
+		cout << "2. Endurance" << endl;
+		cout << "3. Attack" << endl;
+		cout << "4. Luck" << endl;
+		cout << "5. Magic" << endl;
+		cout << "6. Extra" << endl;
+
+		cin >> lvchoice;
+
+		switch (lvchoice)
+		{
+		case 1:
+
+			Health += 1;
+			MaxHealth += 20;
+			
+			cout << "Leveled up Health" << endl;
+			break;
+
+		case 2:
+
+			Endurance += 1;
+			cout << "Leveled up Endurance" << endl;
+			break;
+
+		case 3:
+			Attack += 1;
+			cout << "Leveled up Attack" << endl;
+			break;
+
+		case 4:
+			Luck += 1;
+			cout << "Leveled up Luck" << endl;
+			break;
+		
+		case 5:
+			Magic + 1;
+			MaxMana += 20;
+			cout << "Leveled up Magic" << endl;
+			break;
+
+		case 6:
+			Extra += 1;
+			cout << "Leveled up Extra" << endl;
+			break;
+
+		default:
+			cout << "error" << endl;
+			break;
+		}
 	}
+
 
 };

@@ -35,7 +35,7 @@ public:
 
 	bool Alive = true;
 
-	void TakeDamage(int damage)
+	void TakeDamage(float damage)
 	{
 		Health -= damage;
 
@@ -65,9 +65,9 @@ public:
 
 	}
 
-	int GetDamage()
+	float GetDamage()
 	{
-		int damage = Damage;
+		float damage = Damage;
 
 		int outcome = random(1, 5);
 
@@ -84,3 +84,4 @@ public:
 	}
 };
 
+//add spawn enemy fucntion
