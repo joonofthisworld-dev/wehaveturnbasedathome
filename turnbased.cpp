@@ -16,6 +16,8 @@ using std::endl;
 
 int cycle = 1;
 
+Enemy Skelly("Bandit", 20, 1);
+
 void Battle(Hero& player, Enemy enemy)
 {
 	cout << endl;
@@ -126,6 +128,8 @@ void Battle(Hero& player, Enemy enemy)
 		cout << endl;
 		cout << "You loose." << endl;
 	}
+
+	player.ResetRest();
 }
 
 void MainScreen(Hero player)
@@ -165,7 +169,7 @@ void MainScreen(Hero player)
 
 		case 1:
 
-			Battle(player, //new enemy function);
+			Battle(player, Skelly);
 
 			continue;
 

@@ -218,11 +218,11 @@ public:
 	{
 		Level += 1;
 
-		int points = 1;
+		int points = random(1,3);
 
 		int lvchoice;
 
-		cout << "You have " << points << " points of upgrade. Where would you like to allocate them?" << endl;
+		cout << "You have " << points << " points of upgrade. Where would you like to allocate ALL of them?" << endl;
 
 		cout << "1. Health" << endl;
 		cout << "2. Endurance" << endl;
@@ -245,36 +245,36 @@ public:
 		{
 		case 1:
 
-			Health += 1;
-			MaxHealth += 20;
+			Health += points;
+			MaxHealth += 20 * points;
 			
 			cout << "Leveled up Health" << endl;
 			break;
 
 		case 2:
 
-			Endurance += 1;
+			Endurance += points;
 			cout << "Leveled up Endurance" << endl;
 			break;
 
 		case 3:
-			Attack += 1;
+			Attack += points;
 			cout << "Leveled up Attack" << endl;
 			break;
 
 		case 4:
-			Luck += 1;
+			Luck += points;
 			cout << "Leveled up Luck" << endl;
 			break;
 		
 		case 5:
-			Magic += 1;
-			MaxMana += 20;
+			Magic += points;
+			MaxMana += 20 * points;
 			cout << "Leveled up Magic" << endl;
 			break;
 
 		case 6:
-			Extra += 1;
+			Extra += points;
 			cout << "Leveled up Extra" << endl;
 			break;
 

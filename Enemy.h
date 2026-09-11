@@ -35,6 +35,8 @@ public:
 
 	bool Alive = true;
 
+
+
 	void TakeDamage(float damage)
 	{
 		Health -= damage;
@@ -83,5 +85,3 @@ public:
 		cout << Name << endl << "Health: " << Health << endl;
 	}
 };
-
-//add spawn enemy fucntion
