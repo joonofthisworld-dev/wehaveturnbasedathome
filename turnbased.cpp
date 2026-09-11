@@ -16,7 +16,10 @@ using std::endl;
 
 int cycle = 1;
 
-Enemy Skelly("Bandit", 20, 1);
+Enemy function5()
+{
+	return GenerateEnemy();
+}
 
 void Battle(Hero& player, Enemy enemy)
 {
@@ -98,6 +101,7 @@ void Battle(Hero& player, Enemy enemy)
 				player.TakeDamage(enemy.GetDamage());
 
 				break;
+
 			case 3:
 				cout << "You Expoded!!!" << endl;
 
@@ -134,6 +138,8 @@ void Battle(Hero& player, Enemy enemy)
 
 void MainScreen(Hero player)
 {
+
+
 	while (player.Alive)
 	{
 		cout << cycle << endl; 
@@ -169,7 +175,7 @@ void MainScreen(Hero player)
 
 		case 1:
 
-			Battle(player, Skelly);
+			Battle(player, function5());
 
 			continue;
 

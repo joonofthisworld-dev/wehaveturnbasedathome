@@ -85,20 +85,16 @@ public:
 
 		cout << "Ok, " << name << endl;
 	}
-
-	void TakeDamage(int damage)
+	
+	void TakeDamage(float damage)
 	{
-		CurrentHealth -= damage;
+		CurrentHealth -= (damage * (Endurance * 0.2));
 
 		if (CurrentHealth <= 0)
 		{
 			cout << "You died!" << endl;
 
 			Alive = false;
-
-			cout << endl; cout << endl; cout << endl;
-			cout << Alive;
-			cout << endl; cout << endl; cout << endl;
 		}
 
 
@@ -141,16 +137,16 @@ public:
 		{
 		case Daggers:
 
-			attack = (Attack * .7) * 2;
+			attack = ((Attack + Extra * .5)* .7) * 2;
 
 			break;
 		case Sword:
 
-			attack = Attack;
+			attack = (Attack + Extra * .5);
 			break;
 		case SwordBigger:
 
-			attack = Attack * 2;
+			attack = (Attack + Extra * .5) * 2;
 
 			break;
 		}
@@ -165,6 +161,8 @@ public:
 
 		return attack;
 	}
+
+	int GetDefense() { return Defense; }
 
 	void Rest()
 	{

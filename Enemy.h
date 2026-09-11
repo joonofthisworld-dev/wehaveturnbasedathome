@@ -16,7 +16,8 @@ enum EnemyTypes
 	Skelton,
 	Goblin,
 	Terry,
-	Seth
+	Seth,
+	Bandit
 };
 
 class Enemy
@@ -26,7 +27,7 @@ private:
 
 	// Stats
 
-	int
+	float
 		Health,
 		Damage;
 
@@ -58,7 +59,7 @@ public:
 
 	}
 
-	Enemy(string name, int health, int damage)
+	Enemy(string name, float health, float damage)
 	{
 		Name = name;
 
@@ -85,3 +86,38 @@ public:
 		cout << Name << endl << "Health: " << Health << endl;
 	}
 };
+
+Enemy GenerateEnemy()
+{
+	int choice = random(1, 5);
+
+	switch (choice)
+	{
+	case 1:
+
+		return Enemy("Skeleton", 80, 5);
+
+		break;
+	case 2:
+
+		return Enemy("Goblin", 30, 10);
+
+		break;
+	case 3:
+
+		return Enemy("Terry", 10000000, 3);
+
+		break;
+	case 4:
+
+		return Enemy("Seth", 3, 10000000000);
+
+		break;
+
+	case 5:
+
+		return Enemy("Bandit", 80, 20);
+
+		break;
+	}
+}
