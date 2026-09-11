@@ -102,17 +102,20 @@ public:
 
 	void ShowPlayerStats()
 	{
+		cout << endl;
 		cout << "Level " << Level << endl;
-
+		cout << endl;
 		cout << "Health " << Health << endl;
 		cout << "Endurance " << Endurance << endl;
 		cout << "Attack " << Attack << endl;
 		cout << "Luck " << Luck << endl;
 		cout << "Magic " << Magic << endl;
 		cout << "Extra " << Extra << endl;
-
+		cout << endl;
 		cout << "Mana " << Mana << endl;
 		cout << "Health " << CurrentHealth << endl;
+		cout << endl;
+
 	}
 
 	int GetDamage()
@@ -132,7 +135,7 @@ public:
 			break;
 		case SwordBigger:
 
-			attack = Attack;
+			attack = Attack * 3;
 
 			break;
 		}
@@ -171,13 +174,34 @@ public:
 		CanRest = true;
 	}
 
-	void CastSpell()
+	void ChooseWeapon()
 	{
+		int choice;
+		cout << "Chose your weapon!" << endl;
 
+		cout << "1. Daggers" << endl;
+		cout << "2. Sword" << endl;
+		cout << "3. Sword(Bigger)" << endl;
+
+		cin >> choice;
+
+		switch ( choice)
+		{
+		case 1:
+			weapon = Daggers;
+			break;
+		case 2:
+			weapon = Sword;
+			break;
+		case 3:
+			weapon = SwordBigger;
+			break;
+		}
 	}
 
 	int GetHp()
 	{
 		return CurrentHealth;
 	}
+
 };

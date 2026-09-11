@@ -134,7 +134,15 @@ void MainScreen(Hero player)
 
 		Battle(player, skelly);
 
-		MainScreen(player);
+		if (player.Alive == true)
+		{
+			MainScreen(player);
+		}
+		else
+		{
+
+		}
+		
 
 		break;
 
@@ -176,12 +184,9 @@ int main()
 	Hero Player;
 
 	Player.NameHero();
-
-	
-	
+	Player.ChooseWeapon();
 
 	MainScreen(Player);
-
 
 	return 0;
 }
