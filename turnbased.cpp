@@ -108,6 +108,24 @@ void Battle(Hero& player, Enemy enemy)
 				player.TakeDamage(99999999);
 				break;
 
+			case 4:
+
+				cout << "Magic does not exist!!!" << endl;
+
+				cout << "You took " << enemy.GetDamage() << " Damage" << endl;
+				player.TakeDamage(enemy.GetDamage());
+
+				break;
+
+			case 5:
+				cout << "You casted it on yourself!!!" << endl;
+
+				player.ManaChange(-67);
+
+				cout << "You took " << enemy.GetDamage() << " Damage" << endl;
+				player.TakeDamage(enemy.GetDamage());
+			break;
+
 			default:
 				cout << "Magic does not exist!!!" << endl;
 

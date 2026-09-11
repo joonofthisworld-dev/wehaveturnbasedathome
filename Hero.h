@@ -283,5 +283,10 @@ public:
 		}
 	}
 
+	void ManaChange(int change)
+	{
+		Mana += change;
+	}
+
 
 };

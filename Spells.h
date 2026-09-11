@@ -9,11 +9,14 @@ using std::endl;
 
 
 //Spells
-string spells[3] =
+string spells[6] =
 {
 	"Firebolt",
 	"Heal",
 	"SelfDestruct",
+	"Eradicate",
+	"Spell 5"
+	"Psycilogical Warfare"
 };
 
 void FindSpells()
