@@ -28,8 +28,6 @@ private:
 	int
 		// Level
 		Level,
-		MaxExp,
-		Exp,
 
 		// Stats
 		Health,
@@ -219,6 +217,7 @@ public:
 	void Upgrade()
 	{
 		Level += 1;
+
 		int points = 1;
 
 		int lvchoice;
@@ -233,6 +232,14 @@ public:
 		cout << "6. Extra" << endl;
 
 		cin >> lvchoice;
+		if (cin.fail())
+		{
+			cout << "use numbers";
+			cin.clear();
+			cin.ignore();
+
+			Upgrade();
+		}
 
 		switch (lvchoice)
 		{
@@ -261,7 +268,7 @@ public:
 			break;
 		
 		case 5:
-			Magic + 1;
+			Magic += 1;
 			MaxMana += 20;
 			cout << "Leveled up Magic" << endl;
 			break;
@@ -272,6 +279,7 @@ public:
 			break;
 
 		default:
+
 			cout << "error" << endl;
 			break;
 		}

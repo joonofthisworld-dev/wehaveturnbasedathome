@@ -14,12 +14,9 @@ using std::cout;
 using std::cin;
 using std::endl;
 
-int cycle = 5;
+int cycle = 1;
 
-Enemy skelly("Bandit", 20 * cycle, 1 * cycle);
-
-
-void Battle(Hero player, Enemy enemy)
+void Battle(Hero& player, Enemy enemy)
 {
 	cout << endl;
 	cout << "You encounter a enemy!" << endl;
@@ -39,6 +36,15 @@ void Battle(Hero player, Enemy enemy)
 		cout << "2. Spells" << endl;
 
 		cin >> choice;
+		if (cin.fail())
+		{
+			cout << "use numbers";
+			cin.clear();
+			cin.ignore();
+			
+			continue;
+		}
+
 		cout << endl;
 
 		switch (choice)
@@ -62,6 +68,15 @@ void Battle(Hero player, Enemy enemy)
 			FindSpells();
 
 			cin >> spellchoice;
+
+			if (cin.fail())
+			{
+				cout << "use numbers";
+				cin.clear();
+				cin.ignore();
+
+				continue;
+			}
 
 			switch (spellchoice)
 			{
@@ -104,7 +119,7 @@ void Battle(Hero player, Enemy enemy)
 
 		player.Upgrade();
 
-		cycle + 1;
+		cycle += 1;
 	}
 	else if (player.Alive == false && enemy.Alive)
 	{
@@ -115,8 +130,10 @@ void Battle(Hero player, Enemy enemy)
 
 void MainScreen(Hero player)
 {
-	if (player.Alive)
+	while (player.Alive)
 	{
+		cout << cycle << endl; 
+
 		int choice = 1;
 
 		cout << endl;
@@ -133,15 +150,24 @@ void MainScreen(Hero player)
 
 		cin >> choice;
 
+		if (cin.fail())
+		{
+			cout << "use numbers";
+			cin.clear();
+			cin.ignore();
+
+			continue;
+		}
+
 
 		switch (choice)
 		{
 
 		case 1:
 
-			Battle(player, skelly);
+			Battle(player, //new enemy function);
 
-			MainScreen(player);
+			continue;
 
 			break;
 
@@ -154,7 +180,7 @@ void MainScreen(Hero player)
 
 			cout << endl;
 
-			MainScreen(player);
+			continue;
 
 			break;
 
@@ -162,14 +188,14 @@ void MainScreen(Hero player)
 
 			player.ShowPlayerStats();
 
-			MainScreen(player);
+			continue;
 			break;
 
 		case 4:
 
 			player.Rest();
 
-			MainScreen(player);
+			continue;
 			break;
 		}
 	}
@@ -186,6 +212,7 @@ int main()
 	Player.ChooseWeapon();
 
 	MainScreen(Player);
+
 	return 0;
 }
 
