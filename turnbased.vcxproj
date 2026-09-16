@@ -127,6 +127,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Enemy.h" />
+    <ClInclude Include="Files.h" />
     <ClInclude Include="Hero.h" />
     <ClInclude Include="Random.h" />
     <ClInclude Include="Spells.h" />

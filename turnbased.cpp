@@ -1,14 +1,16 @@
+#include <fstream>
 #include <iostream>
 #include <random>
 #include <algorithm>
 #include <ctime>
 #include <cassert>
-#include <fstream>
+
 
 #include "Random.h"
 #include "Spells.h"
 #include "Enemy.h"
 #include "Hero.h"
+#include "Files.h"
 
 
 using std::string;
@@ -17,8 +19,6 @@ using std::cin;
 using std::endl;
 
 int cycle = 1;
-
-
 
 
 Enemy function5()
@@ -209,6 +209,8 @@ void Battle(Hero& player, Enemy enemy)
 		cout << endl;
 		cout << "You win!" << endl;
 
+		appendToLog("Gamelog.txt","Enemy Defeated!");
+
 		if (reward == 1)
 		{
 			int choice;
@@ -301,6 +303,8 @@ void MainScreen(Hero player)
 
 		cout << "5. View Inventory" << endl;
 
+		cout << "6. Previous Runs" << endl;
+
 		cin >> choice;
 
 		if (cin.fail())
@@ -357,6 +361,12 @@ void MainScreen(Hero player)
 
 			continue;
 			break;
+
+		case 6:
+
+
+			continue;
+			break;
 		}
 	}
 }
@@ -365,13 +375,18 @@ void MainScreen(Hero player)
 int main() 
 {
 
+	writeToFile("Game Started!");
+
 	Hero Player;
 
 	Player.NameHero();
 
 	Player.ChooseWeapon();
 
+
 	MainScreen(Player);
+
+	appendToLog("Gamelog.txt", "Game Ended!");
 
 	return 0;
 }

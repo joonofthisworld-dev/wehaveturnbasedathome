@@ -32,5 +32,8 @@
     <ClInclude Include="Hero.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Files.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
