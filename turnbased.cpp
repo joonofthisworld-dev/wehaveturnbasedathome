@@ -13,6 +13,8 @@
 #include "Files.h"
 
 
+
+
 using std::string;
 using std::cout;
 using std::cin;
@@ -186,6 +188,11 @@ void Battle(Hero& player, Enemy enemy)
 					player.inventory[invuse] = "empty";
 
 					player.TakeDamage(20);
+				}
+				else if (player.inventory[invuse] == "water")
+				{
+					cout << "Stay hydrated" << endl;
+
 				}
 				else
 				{

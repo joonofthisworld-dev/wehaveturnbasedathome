@@ -56,7 +56,7 @@ public:
 
 	bool Alive = true;
 
-	string inventory[10]{"potion", "potion", "poison", "potion", "empty", "empty" ,"empty" ,"empty" ,"empty" ,"empty" };
+	string inventory[10]{"potion", "poison", "poison", "potion", "empty", "empty" ,"empty" ,"empty" ,"empty" ,"water" };
 
 	Hero() {
 		Name = "Unkown";
