@@ -303,7 +303,7 @@ void MainScreen(Hero player)
 
 		cout << "5. View Inventory" << endl;
 
-		cout << "6. Previous Runs" << endl;
+		cout << "6. Previous Run" << endl;
 
 		cin >> choice;
 

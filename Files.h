@@ -42,7 +42,7 @@ void appendToLog(std::string file ,std::string text)
 
 void AddScore(string name, int level)
 {
-	std::ofstream logFile("GameScore.txt", std::ios::app);
+	std::ofstream logFile("GameScore.txt");
 
 	if (logFile.is_open())
 	{
