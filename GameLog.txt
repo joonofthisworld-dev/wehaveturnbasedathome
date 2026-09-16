@@ -1,1 +1,3 @@
 Game Started!
+Enemy Defeated!
+Game Ended!

@@ -364,6 +364,7 @@ void MainScreen(Hero player)
 
 		case 6:
 
+			readFromFile();
 
 			continue;
 			break;
@@ -374,6 +375,7 @@ void MainScreen(Hero player)
 
 int main() 
 {
+
 
 	writeToFile("Game Started!");
 
@@ -387,6 +389,8 @@ int main()
 	MainScreen(Player);
 
 	appendToLog("Gamelog.txt", "Game Ended!");
+
+	AddScore(Player.GetName(), Player.GetLevel());
 
 	return 0;
 }

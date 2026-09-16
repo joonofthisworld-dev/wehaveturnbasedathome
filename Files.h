@@ -39,3 +39,39 @@ void appendToLog(std::string file ,std::string text)
 		logFile.close();
 	}
 }
+
+void AddScore(string name, int level)
+{
+	std::ofstream logFile("GameScore.txt", std::ios::app);
+
+	if (logFile.is_open())
+	{
+		logFile << name << std::endl << level << std::endl;
+
+		logFile.close();
+	}
+}
+
+void readFromFile()
+{
+	std::ifstream datafile("GameScore.txt");
+
+	if (datafile.is_open())
+	{
+		string playername;
+
+		int playerlevel;
+
+		datafile >> playername >> playerlevel;
+
+		cout << playername << endl << "Level: " <<  playerlevel << endl;
+
+		datafile.close();
+	}
+
+	else
+	{
+		cout << "No data found" << endl;
+	}
+	
+}

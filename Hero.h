@@ -315,6 +315,9 @@ public:
 		}
 	}
 
+	string GetName() { return Name; }
+
+	int GetLevel() { return Level; }
 
 
 
