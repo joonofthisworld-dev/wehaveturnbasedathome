@@ -50,9 +50,13 @@ private:
 
 	bool CanRest = true;
 
+	
+
 public:
 
 	bool Alive = true;
+
+	string inventory[10]{"potion", "potion", "poison", "potion", "empty", "empty" ,"empty" ,"empty" ,"empty" ,"empty" };
 
 	Hero() {
 		Name = "Unkown";
@@ -181,6 +185,17 @@ public:
 			cout << "Cant Rest!" << endl;
 		}
 	}
+
+	void Heal(int ammount)
+	{
+		CurrentHealth += ammount;
+		if ( CurrentHealth > MaxHealth)
+		{
+			CurrentHealth = MaxHealth;
+		}
+
+		cout << "Healed " << ammount << endl;
+	}
 	
 	void ResetRest()
 	{
@@ -287,6 +302,20 @@ public:
 	{
 		Mana += change;
 	}
+
+	void ViewInventory()
+	{
+		cout << endl;
+
+		for (int i = 0; i < 10; ++i)
+		{
+			cout << i + 1 << ".  ";
+			cout << inventory[i] << endl;
+
+		}
+	}
+
+
 
 
 };
