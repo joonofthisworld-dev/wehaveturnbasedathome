@@ -349,7 +349,10 @@ void MainScreen(Hero player)
 
 			Move(dir);
 
-			//Battle(player, function5());
+			if (Map[currentX][currentY] == "Enemy")
+			{
+				Battle(player, function5());
+			}
 
 			continue;
 
