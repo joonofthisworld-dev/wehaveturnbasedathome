@@ -11,6 +11,7 @@
 #include "Enemy.h"
 #include "Hero.h"
 #include "Files.h"
+#include "Map.h"
 
 
 
@@ -160,6 +161,9 @@ void Battle(Hero& player, Enemy enemy)
 			break;
 
 		case 3:
+
+			void invUse();
+			{
 			int invuse;
 
 			player.ViewInventory();
@@ -205,6 +209,8 @@ void Battle(Hero& player, Enemy enemy)
 				break;
 			}
 			break;
+			}
+			
 		}
 	}
 
@@ -384,20 +390,22 @@ int main()
 {
 
 
-	writeToFile("Game Started!");
+	//writeToFile("Game Started!");
 
-	Hero Player;
+	//Hero Player;
 
-	Player.NameHero();
+	//Player.NameHero();
 
-	Player.ChooseWeapon();
+	//Player.ChooseWeapon();
 
 
-	MainScreen(Player);
+	//MainScreen(Player);
 
-	appendToLog("Gamelog.txt", "Game Ended!");
+	//appendToLog("Gamelog.txt", "Game Ended!");
 
-	AddScore(Player.GetName(), Player.GetLevel());
+	//AddScore(Player.GetName(), Player.GetLevel());
+
+	Generatemap();
 
 	return 0;
 }

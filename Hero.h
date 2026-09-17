@@ -2,6 +2,7 @@
 
 #include <iostream>
 #include <cstdlib>
+#include <string>
 
 using std::string;
 using std::cout;
@@ -56,7 +57,7 @@ public:
 
 	bool Alive = true;
 
-	string inventory[10]{"potion", "poison", "poison", "potion", "empty", "empty" ,"empty" ,"empty" ,"empty" ,"water" };
+	string inventory[10]{"potion", "potion", "poison", "potion", "empty", "empty" ,"empty" ,"empty" ,"empty" ,"water" };
 
 	Hero() {
 		Name = "Unkown";
@@ -83,9 +84,7 @@ public:
 
 		cout << "Name your hero" << endl;
 
-		cin >> name;
-
-		Name = name;
+		std::getline(cin, name);
 
 		cout << "Ok, " << name << endl;
 	}
