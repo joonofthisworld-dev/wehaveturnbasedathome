@@ -344,7 +344,7 @@ void MainScreen(Hero player)
 		case 1:
 
 			cout << "Which direction?" << endl;
-
+			
 			cin >> dir;
 
 			Move(dir);
