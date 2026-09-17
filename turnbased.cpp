@@ -23,7 +23,6 @@ using std::endl;
 
 int cycle = 1;
 
-
 Enemy function5()
 {
 	return GenerateEnemy();
@@ -388,24 +387,25 @@ void MainScreen(Hero player)
 
 int main() 
 {
+	writeToFile("Game Started!");
+
+	Hero Player;
+
+	Player.NameHero();
+
+	Player.ChooseWeapon();
 
 
-	//writeToFile("Game Started!");
+	MainScreen(Player);
 
-	//Hero Player;
+	appendToLog("Gamelog.txt", "Game Ended!");
 
-	//Player.NameHero();
+	AddScore(Player.GetName(), Player.GetLevel());
 
-	//Player.ChooseWeapon();
-
-
-	//MainScreen(Player);
-
-	//appendToLog("Gamelog.txt", "Game Ended!");
-
-	//AddScore(Player.GetName(), Player.GetLevel());
 
 	Generatemap();
+
+	GetPosition(Map[currentX][currentY]);
 
 	return 0;
 }

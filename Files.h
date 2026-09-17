@@ -3,6 +3,8 @@
 #include <fstream>
 #include <iostream>
 
+#include "Map.h"
+
 
 std::ofstream GameLog;
 std::ifstream HighScore;
