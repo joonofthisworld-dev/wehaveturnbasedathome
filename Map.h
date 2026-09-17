@@ -71,22 +71,55 @@ string GetPosition(string map)
 
 void Move(string Direction)
 {
+
 	if (Direction == "North" || "north")
 	{
-		currentY += 1;
+
+		if (currentY != 10)
+		{
+			cout << "Went north" << endl;
+
+
+			currentY += 1;
+		}
+		else
+		{
+
+			cout << "There is nothing but void..." << endl;
+
+
+		}
+
+
 
 	}
 	else if (Direction == "South" || "east")
 	{
+		cout << "Went south" << endl;
+
 		currentY -= 1;
+
 	}
 	else if (Direction == "East" || "east")
 	{
+
+		cout << "Went east" << endl;
+
 		currentX += 1;
+
 	}
 	else if (Direction == "West" || "west")
 	{
+		cout << "Went west" << endl;
+
 		currentX -= 1;
+
+	}
+	else
+	{
+
+		cout << "???" << endl;
+
 	}
 }
 

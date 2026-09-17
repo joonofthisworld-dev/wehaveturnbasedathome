@@ -1,5 +1,6 @@
 #pragma once
 #include <iostream>
+#include <array>
 
 
 using std::string;
@@ -15,13 +16,13 @@ string spells[6] =
 	"Heal",
 	"SelfDestruct",
 	"Eradicate",
-	"Spell 5"
+	"Spell 5",
 	"Psycilogical Warfare"
 };
 
 void FindSpells()
 {
-	for (int i = 0; i < 3; i++)
+	for (int i = 0; i < std::size(spells); ++i)
 	{
 		cout << spells[i] << endl;
 	}

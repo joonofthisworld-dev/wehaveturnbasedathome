@@ -303,9 +303,13 @@ void MainScreen(Hero player)
 
 		cout << endl;
 
+		GetPosition(Map[currentX][currentY]);
+
+		cout << endl;
+
 		cout << "What would you like to do?" << endl;
 
-		cout << "1. Fight Enemy" << endl;
+		cout << "1. Move (N/S/E/W)" << endl;
 
 		cout << "2. View Spells" << endl;
 
@@ -319,22 +323,33 @@ void MainScreen(Hero player)
 
 		cin >> choice;
 
+		
+
 		if (cin.fail())
 		{
 			cout << "use numbers";
+
 			cin.clear();
+
 			cin.ignore();
 
 			continue;
 		}
 
+		string dir;
 
 		switch (choice)
 		{
 
 		case 1:
 
-			Battle(player, function5());
+			cout << "Which direction?" << endl;
+
+			cin >> dir;
+
+			Move(dir);
+
+			//Battle(player, function5());
 
 			continue;
 
@@ -395,6 +410,9 @@ int main()
 
 	Player.ChooseWeapon();
 
+	Generatemap();
+
+	
 
 	MainScreen(Player);
 
@@ -403,9 +421,7 @@ int main()
 	AddScore(Player.GetName(), Player.GetLevel());
 
 
-	Generatemap();
 
-	GetPosition(Map[currentX][currentY]);
 
 	return 0;
 }
