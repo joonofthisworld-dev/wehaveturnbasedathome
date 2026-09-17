@@ -89,7 +89,7 @@ public:
 
 Enemy GenerateEnemy()
 {
-	int choice = random(1, 3);
+	int choice = random(1, 5);
 
 	switch (choice)
 	{
@@ -107,24 +107,34 @@ Enemy GenerateEnemy()
 
 		return Enemy("Bandit", 80, 20);
 
-		break;
-	}
-}
-
-Enemy GenerateBoss()
-{
-	int choice = random(1, 2);
-
-	switch (choice)
-	{
-	case 1:
+	case 4:
 		return Enemy("Terry", 10000000, 3);
 
 		break;
-	case 2:
+	case 5:
 
 		return Enemy("Seth", 3, 10000000000);
 
 		break;
 
+		break;
 	}
+}
+
+//Enemy GenerateBoss()
+//{
+//	int choice = random(1, 2);
+//
+//	switch (choice)
+//	{
+//	case 1:
+//		return Enemy("Terry", 10000000, 3);
+//
+//		break;
+//	case 2:
+//
+//		return Enemy("Seth", 3, 10000000000);
+//
+//		break;
+//
+//	}
