@@ -421,10 +421,6 @@ bool funny = false;
 int main() 
 {
 
-	if (funny == true)
-	{
-		PlaySound(TEXT("noisepolution.wav"), NULL, SND_FILENAME | SND_ASYNC | SND_LOOP);
-	}
 
 
 	//writeToFile("Game Started!");
