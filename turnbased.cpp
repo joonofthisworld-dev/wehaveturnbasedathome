@@ -12,6 +12,7 @@
 #include "Hero.h"
 #include "Files.h"
 #include "Map.h"
+#include "String.h"
 
 
 
@@ -23,9 +24,14 @@ using std::endl;
 
 int cycle = 1;
 
-Enemy function5()
+Enemy GenEnemy()
 {
 	return GenerateEnemy();
+}
+
+Enemy GenBoss()
+{
+	return GenerateBoss();
 }
 
 void Battle(Hero& player, Enemy enemy)
@@ -351,7 +357,11 @@ void MainScreen(Hero player)
 
 			if (Map[currentX][currentY] == "Enemy")
 			{
-				Battle(player, function5());
+				Battle(player, GenEnemy());
+			}
+			else if (Map[currentX][currentY] == "Boss")
+			{
+				Battle(player, GenBoss());
 			}
 
 			continue;
@@ -405,23 +415,28 @@ void MainScreen(Hero player)
 
 int main() 
 {
-	writeToFile("Game Started!");
 
-	Hero Player;
+	cout << StringUtility::Length("Bleh") << endl;
 
-	Player.NameHero();
 
-	Player.ChooseWeapon();
 
-	Generatemap();
+	//writeToFile("Game Started!");
 
-	
+	//Hero Player;
 
-	MainScreen(Player);
+	//Player.NameHero();
 
-	appendToLog("Gamelog.txt", "Game Ended!");
+	//Player.ChooseWeapon();
 
-	AddScore(Player.GetName(), Player.GetLevel());
+	//Generatemap();
+
+	//
+
+	//MainScreen(Player);
+
+	//appendToLog("Gamelog.txt", "Game Ended!");
+
+	//AddScore(Player.GetName(), Player.GetLevel());
 
 
 
