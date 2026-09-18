@@ -10,6 +10,7 @@ std::string store;
 class StringUtility
 {
 public:
+
 	static std::string ReadFromConsole()
 	{
 		std::cin >> store;
@@ -37,9 +38,9 @@ public:
 		return a.length();
 	};
 
-	static std::string& Append(const std::string& A, const std::string B)
+	static void Append(const std::string& A, const std::string B)
 	{
-
+		std::cout << A + B << std::endl;
 	};
 
 private:

@@ -1,9 +1,11 @@
-#include <fstream>
 #include <iostream>
+#include <fstream>
 #include <random>
 #include <algorithm>
 #include <ctime>
 #include <cassert>
+#include <Windows.h>
+#include <mmsystem.h>
 
 
 #include "Random.h"
@@ -413,11 +415,16 @@ void MainScreen(Hero player)
 }
 
 
+
+bool funny = false;
+
 int main() 
 {
 
-	cout << StringUtility::Length("Bleh") << endl;
-
+	if (funny == true)
+	{
+		PlaySound(TEXT("noisepolution.wav"), NULL, SND_FILENAME | SND_ASYNC | SND_LOOP);
+	}
 
 
 	//writeToFile("Game Started!");
