@@ -315,6 +315,13 @@ void MainScreen(Hero player)
 
 		cout << endl;
 
+		cout << "To the north you see a " << Map[currentX][currentY + 1] << " Node" << endl;
+		cout << "To the south you see a " << Map[currentX][currentY - 1] << " Node" << endl;
+		cout << "To the east you see a " << Map[currentX + 1][currentY] << " Node" << endl;
+		cout << "To the west you see a " << Map[currentX - 1][currentY] << " Node" << endl;
+
+		cout << endl;
+
 		cout << "What would you like to do?" << endl;
 
 		cout << "1. Move (N/S/E/W)" << endl;
@@ -323,7 +330,11 @@ void MainScreen(Hero player)
 
 		cout << "3. View Stats" << endl;
 
+		if (Map[currentX][currentY] == "Rest")
+		{
 		cout << "4. Rest" << endl;
+		}
+		
 
 		cout << "5. View Inventory" << endl;
 
@@ -423,23 +434,23 @@ int main()
 
 
 
-	//writeToFile("Game Started!");
+	writeToFile("Game Started!");
 
-	//Hero Player;
+	Hero Player;
 
-	//Player.NameHero();
+	Player.NameHero();
 
-	//Player.ChooseWeapon();
+	Player.ChooseWeapon();
 
-	//Generatemap();
+	Generatemap();
 
-	//
+	
 
-	//MainScreen(Player);
+	MainScreen(Player);
 
-	//appendToLog("Gamelog.txt", "Game Ended!");
+	appendToLog("Gamelog.txt", "Game Ended!");
 
-	//AddScore(Player.GetName(), Player.GetLevel());
+	AddScore(Player.GetName(), Player.GetLevel());
 
 
 
