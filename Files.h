@@ -1,6 +1,7 @@
 #pragma once
 
 #include <fstream>
+#include <string>
 #include <iostream>
 
 #include "Map.h"
@@ -10,9 +11,9 @@ std::ofstream GameLog;
 std::ifstream HighScore;
 
 
-void writeToFile(std::string text)
+void writeToFile(std::string text, std::string file)
 {
-	std::ofstream logFile("GameLog.txt");
+	std::ofstream logFile(file);
 	if (logFile.is_open())
 	{
 		logFile << text << std::endl;
@@ -76,4 +77,26 @@ void readFromFile()
 		cout << "No data found" << endl;
 	}
 	
+}
+
+void readFromFileString()
+{
+	std::ifstream datafile("StringTest.txt");
+
+	if (datafile.is_open())
+	{
+		string line;
+		while (std::getline(datafile, line))
+		{
+			cout << line << endl;
+		}
+
+		datafile.close();
+	}
+
+	else
+	{
+		cout << "No data found" << endl;
+	}
+
 }

@@ -435,10 +435,44 @@ int main()
 {
 
 
+	// String test part
 
-	writeToFile("Game Started!");
+	StringUtility::ReadFromConsole();
 
-	Hero Player;
+	writeToFile("Sucessfully stored " + store + "\n", "StringTest.txt");
+
+	StringUtility::WriteToConsole(store);
+
+	appendToLog("StringTest.txt", "Wrote " + store + " to the console\n");
+
+	if (StringUtility::EqualTo(store, "Hello"))
+	{
+		appendToLog("StringTest.txt",store + " is equal to Hello \n" );
+	}
+	else
+	{
+		appendToLog("StringTest.txt", store + " is not equal to Hello \n");
+	}
+
+	appendToLog("StringTest.txt", store + " in lower case is:");
+
+	store = StringUtility::Tolower(store);
+
+	appendToLog("StringTest.txt", store);
+
+	string len = std::to_string(StringUtility::Length(store));
+
+	appendToLog("StringTest.txt", store + " has a length of " + len + " letters\n");
+
+	store = StringUtility::Append(store, "blah blah blah append");
+
+	appendToLog("StringTest.txt", store);
+
+	readFromFileString();
+
+
+	// Main Game part
+	/*Hero Player;
 
 	Player.NameHero();
 
@@ -451,7 +485,7 @@ int main()
 	appendToLog("Gamelog.txt", "Game Ended!");
 
 	AddScore(Player.GetName(), Player.GetLevel());
-
+*/
 
 
 

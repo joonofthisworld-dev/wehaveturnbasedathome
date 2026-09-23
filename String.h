@@ -6,15 +6,20 @@
 #include <string>
 #include <cctype>
 
+
 std::string store;
 
 class StringUtility
 {
+
+
 public:
 
 	static std::string ReadFromConsole()
 	{
 		std::cin >> store;
+
+		return store;
 	};
 
 	static void WriteToConsole(const std::string& Str)
@@ -44,14 +49,14 @@ public:
 		return str;
 	}
 
-	static size_t Length(const std::string& a)
+	static int Length(const std::string& a)
 	{
 		return a.length();
 	};
 
-	static void Append(const std::string& A, const std::string B)
+	static std::string Append(const std::string& A, const std::string B)
 	{
-		std::cout << A + B << std::endl;
+		return A + B;
 	};
 
 private:

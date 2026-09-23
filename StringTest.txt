@@ -1,0 +1,11 @@
+Sucessfully stored Water
+
+Wrote Water to the console
+
+Water is not equal to Hello 
+
+Water in lower case is:
+water
+water has a length of 5 letters
+
+waterblah blah blah append
