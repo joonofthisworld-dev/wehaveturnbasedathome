@@ -4,6 +4,7 @@
 #include <fstream>
 #include <ostream>
 #include <string>
+#include <cctype>
 
 std::string store;
 
@@ -32,6 +33,16 @@ public:
 			return false;
 		}
 	};
+
+	static std::string Tolower(std::string& str)
+	{	
+		for (char& c : str)
+		{
+			c = static_cast<char>(std::tolower(c));
+		}
+
+		return str;
+	}
 
 	static size_t Length(const std::string& a)
 	{

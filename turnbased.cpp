@@ -9,12 +9,12 @@
 
 
 #include "Random.h"
-#include "Spells.h"
 #include "Enemy.h"
 #include "Hero.h"
 #include "Files.h"
 #include "Map.h"
 #include "String.h"
+#include "Item.h"
 
 
 
@@ -92,7 +92,7 @@ void Battle(Hero& player, Enemy enemy)
 
 			int spellchoice;
 
-			FindSpells();
+			player.FindSpells();
 
 			cin >> spellchoice;
 
@@ -173,6 +173,9 @@ void Battle(Hero& player, Enemy enemy)
 			{
 			int invuse;
 
+			HealPotion healpot("Heal Potion", 20);
+			Poison poipot("Poison Potion", 20);
+
 			player.ViewInventory();
 
 			cin >> invuse;
@@ -190,7 +193,7 @@ void Battle(Hero& player, Enemy enemy)
 
 					player.inventory[invuse] = "empty";
 
-					player.Heal(20);
+					healpot.Use(player);
 				}
 				else if (player.inventory[invuse] == "poison")
 				{
@@ -198,7 +201,7 @@ void Battle(Hero& player, Enemy enemy)
 
 					player.inventory[invuse] = "empty";
 
-					player.TakeDamage(20);
+					poipot.Use(player);
 				}
 				else if (player.inventory[invuse] == "water")
 				{
@@ -299,13 +302,12 @@ void Battle(Hero& player, Enemy enemy)
 	player.ResetRest();
 }
 
-void MainScreen(Hero player)
+void MainScreen(Hero& player)
 {
 
 
 	while (player.Alive)
 	{
-		cout << cycle << endl; 
 
 		int choice = 1;
 
@@ -386,7 +388,7 @@ void MainScreen(Hero player)
 
 			cout << endl;
 
-			FindSpells();
+			player.FindSpells();
 
 			cout << endl;
 
@@ -443,8 +445,6 @@ int main()
 	Player.ChooseWeapon();
 
 	Generatemap();
-
-	
 
 	MainScreen(Player);
 

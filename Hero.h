@@ -4,6 +4,7 @@
 #include <cstdlib>
 #include <string>
 
+
 using std::string;
 using std::cout;
 using std::cin;
@@ -22,7 +23,16 @@ class Hero {
 
 private:
 
-	string Name;
+
+	string spells[6] =
+	{
+		"Firebolt",
+		"Heal",
+		"SelfDestruct",
+		"Eradicate",
+		"Spell 5",
+		"Psycilogical Warfare"
+	};
 
 	Weapon weapon = Daggers;
 
@@ -53,14 +63,17 @@ private:
 
 	
 
+
 public:
+
+	string Name;
 
 	bool Alive = true;
 
 	string inventory[10]{"potion", "potion", "poison", "potion", "empty", "empty" ,"empty" ,"empty" ,"empty" ,"water" };
 
 	Hero() {
-		Name = "Unkown";
+		Name = "Unknown";
 
 		Level = 1;
 
@@ -317,6 +330,15 @@ public:
 	string GetName() { return Name; }
 
 	int GetLevel() { return Level; }
+	
+	void FindSpells()
+	{
+		for (int i = 0; i < std::size(spells); ++i)
+		{
+			cout << spells[i] << endl;
+		}
+
+	}
 
 
 

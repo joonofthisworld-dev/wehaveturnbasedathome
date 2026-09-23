@@ -128,10 +128,10 @@
   <ItemGroup>
     <ClInclude Include="Enemy.h" />
     <ClInclude Include="Files.h" />
+    <ClInclude Include="Item.h" />
     <ClInclude Include="Map.h" />
     <ClInclude Include="Hero.h" />
     <ClInclude Include="Random.h" />
-    <ClInclude Include="Spells.h" />
     <ClInclude Include="String.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
