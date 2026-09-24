@@ -154,9 +154,6 @@ void Shop(Hero& player)
 	}
 }
 
-
-
-
 void Battle(Hero& player, Enemy enemy)
 {
 	cout << endl;
@@ -600,9 +597,7 @@ void MainScreen(Hero& player)
 	}
 }
 
-
-
-bool funny = false;
+bool funny = true;
 
 int main() 
 {
