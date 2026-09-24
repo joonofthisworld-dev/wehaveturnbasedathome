@@ -273,7 +273,10 @@ void Battle(Hero& player, Enemy enemy)
 			case 6:
 				cout << "You casted it on yourself!!!" << endl;
 
-				player.ManaChange(-67);
+				if (player.Mana >= 67)
+				{
+					player.Mana -= 67;
+				}
 
 				cout << "You took " << enemy.GetDamage() << " Damage" << endl;
 				player.TakeDamage(enemy.GetDamage());
@@ -444,10 +447,44 @@ void MainScreen(Hero& player)
 
 		cout << endl;
 
-		cout << "To the north you see a " << Map[currentX][currentY + 1] << " Node" << endl;
-		cout << "To the south you see a " << Map[currentX][currentY - 1] << " Node" << endl;
-		cout << "To the east you see a " << Map[currentX + 1][currentY] << " Node" << endl;
-		cout << "To the west you see a " << Map[currentX - 1][currentY] << " Node" << endl;
+		if (currentY == mapsize)
+		{
+			cout << "To the north lies the void." << endl;
+		}
+		else
+		{
+			cout << "To the north you see a " << Map[currentX][currentY + 1] << " Node" << endl;
+		}
+		
+		if (currentY == 0)
+		{
+			cout << "To the south lies the void." << endl;
+		}
+		else
+		{
+			cout << "To the south you see a " << Map[currentX][currentY - 1] << " Node" << endl;
+		}
+		
+		if (currentX == mapsize)
+		{
+			cout << "To the east lies the void." << endl;
+		}
+		else
+		{
+			cout << "To the east you see a " << Map[currentX + 1][currentY] << " Node" << endl;
+		}
+		
+
+		if (currentX == 0)
+		{
+			cout << "To the west lies the void." << endl;
+		}
+		else
+		{
+			cout << "To the west you see a " << Map[currentX - 1][currentY] << " Node" << endl;
+		}
+		
+
 
 		cout << endl;
 
@@ -624,8 +661,6 @@ int main()
 	appendToLog("Gamelog.txt", "Game Ended!");
 
 	AddScore(Player.GetName(), Player.GetLevel());
-
-
 
 
 	return 0;

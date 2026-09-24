@@ -21,7 +21,7 @@ enum Weapon
 
 class Hero {
 
-private:
+public:
 
 
 	string spells[6] =
@@ -63,9 +63,6 @@ private:
 
 	
 
-
-public:
-
 	int Money = 40;
 
 	string Name;
@@ -79,15 +76,15 @@ public:
 
 		Level = 1;
 
-		Health = 10;
+		Health = 5;
 		Endurance = 5;
-		Attack = 5;
+		Attack = 999;
 		Luck = 5;
 		Magic = 5;
 		Extra = 0;
 
 		Mana = 100,
-			MaxMana = 100,
+			MaxMana = Magic * 5,
 			Defense = 5;
 		MaxHealth = 100;
 		CurrentHealth = Health * 20;
@@ -317,10 +314,6 @@ public:
 		}
 	}
 
-	void ManaChange(int change)
-	{
-		Mana += change;
-	}
 
 	void ViewInventory()
 	{
