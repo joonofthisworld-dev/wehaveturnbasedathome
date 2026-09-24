@@ -35,24 +35,30 @@ Enemy GenBoss()
 {
 	return GenerateBoss();
 }
+
+
+//FIIXXXXXXX FIIXXXXXXX FIIXXXXXXX FIIXXXXXXX FIIXXXXXXX FIIXXXXXXX FIIXXXXXXX FIIXXXXXXX FIIXXXXXXX FIIXXXXXXX FIIXXXXXXX FIIXXXXXXX FIIXXXXXXX FIIXXXXXXX FIIXXXXXXX FIIXXXXXXX FIIXXXXXXX FIIXXXXXXX FIIXXXXXXX 
 void Shop(Hero& player)
 {
 	bool inshop = true;
 
 	int choice;
 
+	string items[3]{ "Potion","Potion","Potion" };
+
 	while (inshop)
 	{
 		cout << "You enter the shop..." << endl;
-		string items[3]{ "Potion","Potion","Potion" };
+		
 
 		for (int item = 0; item < 3; item++)
 		{
+			cout << items[item] << endl;
 			if (items[item] == "Potion")
 			{
 				cout << item + 1 << " Potion: 20 Gold" << endl;
 			}
-			else
+			else if (items[item] == "Empty")
 			{
 				cout << item + 1 << " Empty" << endl;
 			}
@@ -64,7 +70,33 @@ void Shop(Hero& player)
 		switch (choice)
 		{
 		case 1:
-			if (items[1] != "Empty" && player.Money > 20)
+			if (items[0] != "Empty" && player.Money >= 20)
+			{
+				player.Money -= 20;
+				items[0] = "Empty";
+
+				cout << "Bought a potion." << endl;
+				cout << "Where would you like to put it?" << endl;
+
+				int slot;
+
+				player.ViewInventory();
+				cout << "Which slot?" << endl;
+
+				cin >> slot;
+
+				switch (slot)
+				{
+					slot -= 1;
+				case 1: case 2: case 3: case 4: case 5: case 6: case 7: case 8: case 9: case 10:
+
+					player.inventory[slot] = "potion";
+
+				}
+			}
+			break;
+		case 2:
+			if (items[1] != "Empty" && player.Money >= 20)
 			{
 				player.Money -= 20;
 				items[1] = "Empty";
@@ -89,37 +121,11 @@ void Shop(Hero& player)
 				}
 			}
 			break;
-		case 2:
-			if (items[2] != "Empty" && player.Money > 20)
+		case 3:
+			if (items[2] != "Empty" && player.Money >= 20)
 			{
 				player.Money -= 20;
 				items[2] = "Empty";
-
-				cout << "Bought a potion." << endl;
-				cout << "Where would you like to put it?" << endl;
-
-				int slot;
-
-				player.ViewInventory();
-				cout << "Which slot?" << endl;
-
-				cin >> slot;
-
-				switch (slot)
-				{
-					slot -= 1;
-				case 1: case 2: case 3: case 4: case 5: case 6: case 7: case 8: case 9: case 10:
-
-					player.inventory[slot] = "potion";
-
-				}
-			}
-			break;
-		case 3:
-			if (items[3] != "Empty" && player.Money > 20)
-			{
-				player.Money -= 20;
-				items[3] = "Empty";
 
 				cout << "Bought a potion." << endl;
 				cout << "Where would you like to put it?" << endl;

@@ -66,7 +66,7 @@ private:
 
 public:
 
-	int Money = 100;
+	int Money = 40;
 
 	string Name;
 
