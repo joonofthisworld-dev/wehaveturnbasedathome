@@ -37,7 +37,6 @@ Enemy GenBoss()
 }
 
 
-//FIIXXXXXXX FIIXXXXXXX FIIXXXXXXX FIIXXXXXXX FIIXXXXXXX FIIXXXXXXX FIIXXXXXXX FIIXXXXXXX FIIXXXXXXX FIIXXXXXXX FIIXXXXXXX FIIXXXXXXX FIIXXXXXXX FIIXXXXXXX FIIXXXXXXX FIIXXXXXXX FIIXXXXXXX FIIXXXXXXX FIIXXXXXXX 
 void Shop(Hero& player)
 {
 	bool inshop = true;
@@ -572,7 +571,7 @@ int main()
 {
 
 
-	// String test part
+	//// String test part---------------------------------------------------------------
 
 	//StringUtility::ReadFromConsole();
 
@@ -608,7 +607,8 @@ int main()
 	//readFromFileString();
 
 
-	// Main Game part
+	//// Main Game part---------------------------------------------------------------
+
 
 
 	Hero Player;
