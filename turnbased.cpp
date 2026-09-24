@@ -35,6 +35,122 @@ Enemy GenBoss()
 {
 	return GenerateBoss();
 }
+void Shop(Hero& player)
+{
+	bool inshop = true;
+
+	int choice;
+
+	while (inshop)
+	{
+		cout << "You enter the shop..." << endl;
+		string items[3]{ "Potion","Potion","Potion" };
+
+		for (int item = 0; item < 3; item++)
+		{
+			if (items[item] == "Potion")
+			{
+				cout << item + 1 << " Potion: 20 Gold" << endl;
+			}
+			else
+			{
+				cout << item + 1 << " Empty" << endl;
+			}
+		}
+
+		cout << " 4. Leave";
+		cin >> choice;
+
+		switch (choice)
+		{
+		case 1:
+			if (items[1] != "Empty" && player.Money > 20)
+			{
+				player.Money -= 20;
+				items[1] = "Empty";
+
+				cout << "Bought a potion." << endl;
+				cout << "Where would you like to put it?" << endl;
+
+				int slot;
+
+				player.ViewInventory();
+				cout << "Which slot?" << endl;
+
+				cin >> slot;
+
+				switch (slot)
+				{
+					slot -= 1;
+				case 1: case 2: case 3: case 4: case 5: case 6: case 7: case 8: case 9: case 10:
+
+					player.inventory[slot] = "potion";
+
+				}
+			}
+			break;
+		case 2:
+			if (items[2] != "Empty" && player.Money > 20)
+			{
+				player.Money -= 20;
+				items[2] = "Empty";
+
+				cout << "Bought a potion." << endl;
+				cout << "Where would you like to put it?" << endl;
+
+				int slot;
+
+				player.ViewInventory();
+				cout << "Which slot?" << endl;
+
+				cin >> slot;
+
+				switch (slot)
+				{
+					slot -= 1;
+				case 1: case 2: case 3: case 4: case 5: case 6: case 7: case 8: case 9: case 10:
+
+					player.inventory[slot] = "potion";
+
+				}
+			}
+			break;
+		case 3:
+			if (items[3] != "Empty" && player.Money > 20)
+			{
+				player.Money -= 20;
+				items[3] = "Empty";
+
+				cout << "Bought a potion." << endl;
+				cout << "Where would you like to put it?" << endl;
+
+				int slot;
+
+				player.ViewInventory();
+				cout << "Which slot?" << endl;
+
+				cin >> slot;
+
+				switch (slot)
+				{
+					slot -= 1;
+				case 1: case 2: case 3: case 4: case 5: case 6: case 7: case 8: case 9: case 10:
+
+					player.inventory[slot] = "potion";
+
+				}
+			}
+			break;
+		case 4:
+			inshop = false;
+			break;
+
+		}
+	}
+}
+
+
+
 
 void Battle(Hero& player, Enemy enemy)
 {
@@ -289,6 +405,12 @@ void Battle(Hero& player, Enemy enemy)
 			}
 		}
 
+		 int moneyreward = random(1, 50);
+
+		player.Money += moneyreward;
+
+		cout << "You gained " << moneyreward << " gold!" << endl;
+
 		player.Upgrade();
 
 		cycle += 1;
@@ -336,11 +458,15 @@ void MainScreen(Hero& player)
 		{
 		cout << "4. Rest" << endl;
 		}
-		
 
-		cout << "5. View Inventory" << endl;
+		if (Map[currentX][currentY] == "Shop")
+		{
+			cout << "5. Shop" << endl;
+		}
 
-		cout << "6. Previous Run" << endl;
+		cout << "6. View Inventory" << endl;
+
+		cout << "7. Previous Run" << endl;
 
 		cin >> choice;
 
@@ -411,13 +537,18 @@ void MainScreen(Hero& player)
 			break;
 
 		case 5:
+			Shop(player);
+
+			continue;
+			break;
+		case 6:
 
 			player.ViewInventory();
 
 			continue;
 			break;
 
-		case 6:
+		case 7:
 
 			readFromFile();
 
@@ -437,42 +568,44 @@ int main()
 
 	// String test part
 
-	StringUtility::ReadFromConsole();
+	//StringUtility::ReadFromConsole();
 
-	writeToFile("Sucessfully stored " + store + "\n", "StringTest.txt");
+	//writeToFile("Sucessfully stored " + store + "\n", "StringTest.txt");
 
-	StringUtility::WriteToConsole(store);
+	//StringUtility::WriteToConsole(store);
 
-	appendToLog("StringTest.txt", "Wrote " + store + " to the console\n");
+	//appendToLog("StringTest.txt", "Wrote " + store + " to the console\n");
 
-	if (StringUtility::EqualTo(store, "Hello"))
-	{
-		appendToLog("StringTest.txt",store + " is equal to Hello \n" );
-	}
-	else
-	{
-		appendToLog("StringTest.txt", store + " is not equal to Hello \n");
-	}
+	//if (StringUtility::EqualTo(store, "Hello"))
+	//{
+	//	appendToLog("StringTest.txt",store + " is equal to Hello \n" );
+	//}
+	//else
+	//{
+	//	appendToLog("StringTest.txt", store + " is not equal to Hello \n");
+	//}
 
-	appendToLog("StringTest.txt", store + " in lower case is:");
+	//appendToLog("StringTest.txt", store + " in lower case is:");
 
-	store = StringUtility::Tolower(store);
+	//store = StringUtility::Tolower(store);
 
-	appendToLog("StringTest.txt", store);
+	//appendToLog("StringTest.txt", store);
 
-	string len = std::to_string(StringUtility::Length(store));
+	//string len = std::to_string(StringUtility::Length(store));
 
-	appendToLog("StringTest.txt", store + " has a length of " + len + " letters\n");
+	//appendToLog("StringTest.txt", store + " has a length of " + len + " letters\n");
 
-	store = StringUtility::Append(store, "blah blah blah append");
+	//store = StringUtility::Append(store, "blah blah blah append");
 
-	appendToLog("StringTest.txt", store);
+	//appendToLog("StringTest.txt", store);
 
-	readFromFileString();
+	//readFromFileString();
 
 
 	// Main Game part
-	/*Hero Player;
+
+
+	Hero Player;
 
 	Player.NameHero();
 
@@ -485,7 +618,7 @@ int main()
 	appendToLog("Gamelog.txt", "Game Ended!");
 
 	AddScore(Player.GetName(), Player.GetLevel());
-*/
+
 
 
 

@@ -1,11 +1,11 @@
-Sucessfully stored Water
+Sucessfully stored joe
 
-Wrote Water to the console
+Wrote joe to the console
 
-Water is not equal to Hello 
+joe is not equal to Hello 
 
-Water in lower case is:
-water
-water has a length of 5 letters
+joe in lower case is:
+joe
+joe has a length of 3 letters
 
-waterblah blah blah append
+joeblah blah blah append

@@ -66,6 +66,8 @@ private:
 
 public:
 
+	int Money = 100;
+
 	string Name;
 
 	bool Alive = true;
@@ -77,7 +79,7 @@ public:
 
 		Level = 1;
 
-		Health = 5;
+		Health = 10;
 		Endurance = 5;
 		Attack = 5;
 		Luck = 5;
@@ -88,7 +90,7 @@ public:
 			MaxMana = 100,
 			Defense = 5;
 		MaxHealth = 100;
-		CurrentHealth = 100;
+		CurrentHealth = Health * 20;
 	}
 
 	void NameHero()
@@ -100,6 +102,8 @@ public:
 		std::getline(cin, name);
 
 		cout << "Ok, " << name << endl;
+
+		Name = name;
 	}
 	
 	void TakeDamage(float damage)
@@ -119,7 +123,10 @@ public:
 	void ShowPlayerStats()
 	{
 		cout << endl;
+		cout << Name << endl;
+		cout << endl;
 		cout << "Level " << Level << endl;
+		cout << "Gold " << Money << endl;
 		cout << endl;
 		cout << "Health " << Health << endl;
 		cout << "Endurance " << Endurance << endl;
