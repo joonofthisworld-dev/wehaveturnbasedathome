@@ -29,8 +29,6 @@ void writeToFile(std::string text, std::string file)
 	}
 }
 
-
-
 void appendToLog(std::string file ,std::string text)
 {
 	std::ofstream logFile(file, std::ios::app);
