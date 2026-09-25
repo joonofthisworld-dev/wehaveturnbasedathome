@@ -605,38 +605,38 @@ int main()
 
 	//// String test part---------------------------------------------------------------
 
-	//StringUtility::ReadFromConsole();
+	StringUtility::ReadFromConsole();
 
-	//writeToFile("Sucessfully stored " + store + "\n", "StringTest.txt");
+	writeToFile("Sucessfully stored " + store + "\n", "StringTest.txt");
 
-	//StringUtility::WriteToConsole(store);
+	StringUtility::WriteToConsole(store);
 
-	//appendToLog("StringTest.txt", "Wrote " + store + " to the console\n");
+	appendToLog("StringTest.txt", "Wrote " + store + " to the console\n");
 
-	//if (StringUtility::EqualTo(store, "Hello"))
-	//{
-	//	appendToLog("StringTest.txt",store + " is equal to Hello \n" );
-	//}
-	//else
-	//{
-	//	appendToLog("StringTest.txt", store + " is not equal to Hello \n");
-	//}
+	if (StringUtility::EqualTo(store, "Hello"))
+	{
+		appendToLog("StringTest.txt",store + " is equal to Hello \n" );
+	}
+	else
+	{
+		appendToLog("StringTest.txt", store + " is not equal to Hello \n");
+	}
 
-	//appendToLog("StringTest.txt", store + " in lower case is:");
+	appendToLog("StringTest.txt", store + " in lower case is:");
 
-	//store = StringUtility::Tolower(store);
+	store = StringUtility::Tolower(store);
 
-	//appendToLog("StringTest.txt", store);
+	appendToLog("StringTest.txt", store);
 
-	//string len = std::to_string(StringUtility::Length(store));
+	string len = std::to_string(StringUtility::Length(store));
 
-	//appendToLog("StringTest.txt", store + " has a length of " + len + " letters\n");
+	appendToLog("StringTest.txt", store + " has a length of " + len + " letters\n");
 
-	//store = StringUtility::Append(store, "blah blah blah append");
+	store = StringUtility::Append(store, "blah blah blah append");
 
-	//appendToLog("StringTest.txt", store);
+	appendToLog("StringTest.txt", store);
 
-	//readFromFileString();
+	readFromFileString();
 
 
 	//// Main Game part---------------------------------------------------------------

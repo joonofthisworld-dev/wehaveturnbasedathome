@@ -2,6 +2,8 @@
 
 #include <iostream>
 #include <array> 
+
+#include "String.h"
 #include "Random.h"
 
 using std::cout;
@@ -72,7 +74,7 @@ string GetPosition(string map)
 void Move(string Direction)
 {
 
-	if (Direction == "North")
+	if (StringUtility::Tolower(Direction) == "north")
 	{
 
 		if (currentY != 10)
@@ -92,7 +94,7 @@ void Move(string Direction)
 
 
 	}
-	else if (Direction == "South")
+	else if (StringUtility::Tolower(Direction) == "south")
 	{
 
 
@@ -113,7 +115,7 @@ void Move(string Direction)
 
 
 	}
-	else if (Direction == "East")
+	else if (StringUtility::Tolower(Direction) == "east")
 	{
 
 		if (currentX != 10)
@@ -132,7 +134,7 @@ void Move(string Direction)
 		}
 
 	}
-	else if (Direction == "West")
+	else if (StringUtility::Tolower(Direction) == "west")
 	{
 		if (currentX != 0)
 		{
